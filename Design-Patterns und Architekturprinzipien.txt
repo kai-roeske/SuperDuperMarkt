@@ -1,0 +1,66 @@
+--------------------------------------------------
+Benutzte Architekturprinzipien und Design-Patterns
+--------------------------------------------------
+
+
+Trennung der Verantwortlichkeiten (Single Responsibility):
+----------------------------------------------------------
+Produkte erzeugen:	ProductFactories
+Produktsimulation:	ProductSimulationService
+Zeitsteuerung:	Clock
+Ausgabe:	ProductPrinter / OutputWriter
+Entry-Point:	Application 
+
+
+
+Dependency Injection (lose Kopplung, Übergabe von Clock, OutputWriter, etc.):
+------------------------------------- 
+- DiaryClock, FakeClock implementieren Clock. Die Implementierungen können ausgetauscht werden, z.B. für Unittests 
+- ConsoleWriter implementiert OutputWriter. Auch hier kann die Implementierung gewechselt werden.
+- DefaultProductFactory, CsvProductFactory, SqlProductFactory implementieren ProductFactory. Hier kann die Implementierung ebenso gewechselt werden.
+
+
+Ports and Adapters:
+-------------------
+    Clock ist ein Interface im Model-Package,  DiaryClock ist die Implementierung im Controller-Package (Anwendungsschicht).
+    Klassen im Model-Package (Cheese-Klasse) greifen ausschließlich über das Interface auf die Implementierung zu. 
+    So ist das Model unabhängig von der Implementierung.
+    Damit kann das Model-Modul überall wiederverwendet werden – z.B. auch in einem anderen Projekt 
+    
+    
+Singleton:
+----------
+Diary verwaltet den Lauf der Zeit. Es darf nur eine gültige Instanz geben.
+
+    
+Strategy:
+---------
+Product: getQuality(...) und getPrice() werden überschrieben
+
+
+Template method:
+----------------
+Product.getPrice verfolgt ein bestimmtes Logik-Schema und ruft individelle Implementierungen getQuality auf 
+
+
+Delegate:
+---------
+ProductPrinter.print... delegiert an OutputWriter.write(...): Trennung von Formatierung und Ausführung (Writer)
+
+
+ 
+Modularität, Erweiterbarkeit:
+-----------------------------
+Datenquellen werden im ProductFactory-Interface abstrahiert. Produkte basieren auf der abstrakten Product-Klasse.
+Die Erzeugung der Produkte wird über Implementierungen von ProductBuilder geleistet, so dass auf Type-Angaben im String-Format reagiert werden kann
+und die jeweiligen Factories die Erzeugung der Produkte leicht leisten können.
+Neue Produkttypen und alternative Datenquellen für Produktdaten können flexibel integriert werden,
+ohne Änderungen am Steuerungs-Code (Application, ProductSimulationService).
+
+
+
+
+
+
+
+

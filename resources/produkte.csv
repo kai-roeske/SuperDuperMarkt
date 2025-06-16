@@ -1,0 +1,12 @@
+type,name,quality,delivered
+cheese,quark,100,20.04.2025
+cheese,limburger,70,09.06.2025
+cheese,parmesan,80,09.06.2025
+cheese,quark,31,20.04.2025
+cheese,gorgonzola,85,09.06.2025
+wine,beaujolais,80,20.04.2025
+wine,burgunder,100,01.05.2025
+wine,dornfelder,60,30.04.2025
+wine,cabernet,55,01.05.2025
+wine,tuetenwein,20,20.04.2025
+chocolate, milka_marzipan, 100, 16.08.2024
