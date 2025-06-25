@@ -3,9 +3,11 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 
-import controller.Constants.ProductType;
-import controller.Constants.Specification;
-
+/**
+ * Basisklasse für Produkte mit den Eigenschaften {@link #minimumQuality},  {@link #productType},  
+ * {@link #initialQuality},  {@link #delivered},  {@link #expiryDate},  {@link #daysUntilExpiry},  
+ * {@link #specification}, {@link #getExpiryDate}
+ */
 public abstract class Product {
 	
 	/**
@@ -13,10 +15,13 @@ public abstract class Product {
 	 */
 	protected int minimumQuality;
 	
+	/**
+	 * See {@link ProductType }
+	 */
 	protected ProductType productType;
 	
 	/**
-	 * Bestmögliche Qualität
+	 * Ausgangsqualität, 
 	 */
 	protected int initialQuality;
 	
@@ -25,10 +30,12 @@ public abstract class Product {
 	 */
 	protected Date delivered;
 	
+	@Deprecated
 	protected Date expiryDate;
 
 	/**
 	 * Tage ab Lieferung, nach denen das Verfallsdatum erreicht ist.
+	 * Wenn null, verfällt das Produkt nicht.
 	 */
 	private Integer daysUntilExpiry;
 
@@ -59,10 +66,14 @@ public abstract class Product {
 	 */
 	public abstract int getQuality(Date current);
 	
-	
+	/**
+	 * get the product's price
+	 */
 	public abstract double getPrice();
 	
-	
+	/**
+	 * get the product's name
+	 */
 	public String getName() {
 		return specification.getName();
 	}
@@ -91,6 +102,10 @@ public abstract class Product {
 		return productType.getName() + "("+  getName() ;
 	}
 	
+	/**
+	 * Ablaufdatum. Wenn {@link #daysUntilExpiry} == null, dann verfällt das Produkt nicht und es wird null zurückgegeben.
+	 * @return null: kein Ablaufdatum, sonst: Lieferdatum plus Haltbarkeitstage
+	 */
 	public Date getExpiryDate() {
 		if(daysUntilExpiry == null) { // Es gibt Produkte, die nicht verfallen
 			return null;

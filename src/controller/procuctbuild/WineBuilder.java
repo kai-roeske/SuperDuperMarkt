@@ -2,16 +2,20 @@ package controller.procuctbuild;
 
 import java.util.Date;
 
-import controller.Constants.WineType;
 import products.Clock;
 import products.Product;
+import products.ProductType;
 import products.Wine;
+import products.types.WineType;
 
+/**
+ * See {@link ProductBuilder}
+ */
 public class WineBuilder implements ProductBuilder {
 
     @Override
     public String getSupportedType() {
-        return "wine";
+    	return ProductType.wine.name();
     }
 
     @Override

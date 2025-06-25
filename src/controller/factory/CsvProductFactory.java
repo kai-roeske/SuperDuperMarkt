@@ -12,6 +12,11 @@ import controller.procuctbuild.ProductBuilderRegistry;
 import products.Clock;
 import products.Product;
 
+/**
+ * Ausprägung der {@link ProductFactory} zur Erzeugung der Modelle mithilfe einer CSV-Datei.
+ * Benötigt zur Erstellung von Modellen eine {@link Clock}, einen {@link String} zur Identifizierung des Speicherorts
+ * und eine {@link ProductBuilderRegistry} 
+ */
 public class CsvProductFactory implements ProductFactory {
 
     private final Clock clock;

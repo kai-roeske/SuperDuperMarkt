@@ -14,6 +14,12 @@ import controller.procuctbuild.ProductBuilderRegistry;
 import products.Clock;
 import products.Product;
 
+/**
+ * Ausprägung der {@link ProductFactory} zur Erzeugung der Modelle (Produkte) mithilfe einer Datenbank.
+ * Benötigt zur Erstellung von Modellen eine {@link Clock}, eine {@link ProductBuilderRegistry}
+ * und einen {@link String} zur Identifizierung der DB und ggfs des Import.sql
+ *  und einen {@link String} zur Identifizierung des DB-Users und Passworts
+ */
 public class SqlProductFactory implements ProductFactory {
 
 	private final Clock clock;

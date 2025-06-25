@@ -90,6 +90,11 @@ public class DateTimeUtils {
 		return durationBetween(toLocalDateTime(from), toLocalDateTime(to));
 	}
 	
+	/**
+	 * Konvertiert ein java.sql.Date in ein java.util.Date
+	 * @param sqlDate
+	 * @return utilDate
+	 */
 	public static Date fromSqlDate(java.sql.Date sqlDate) {
 		return new Date(sqlDate.getTime());
 	}

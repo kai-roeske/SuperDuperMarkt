@@ -4,16 +4,19 @@ import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 
-import controller.Constants.CheeseType;
-import controller.Constants.ChocolateType;
-import controller.Constants.WineType;
 import controller.DateTimeUtils;
 import products.Cheese;
 import products.Chocolate;
 import products.Clock;
 import products.Product;
 import products.Wine;
+import products.types.CheeseType;
+import products.types.ChocolateType;
+import products.types.WineType;
 
+/**
+ * Implementierung der {@link ProductFactory} zur Erzeugung der Modelle statisch aus Code.  
+ */
 public class DefaultProductFactory implements ProductFactory {
 	
     private final Clock clock;

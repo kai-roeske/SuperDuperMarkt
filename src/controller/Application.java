@@ -14,6 +14,9 @@ import products.Product;
 
 public class Application {
 
+	/**
+	 * Anzahl der Tage, deren Ablauf protokolliert wird
+	 */
 	private final int SIMULATION_DAYS = 400;
 
 	public static void main(String[] args) {
@@ -24,7 +27,13 @@ public class Application {
 			e.printStackTrace();
 		}
 	}
-
+	/**
+	 * Erzeugung der Beteiligten Komponenten und deren Verwendung. Erst werden alle Beteiligten Module erzeugt und dann 
+	 * in die Verwendung 'injiziert' - es ist also eine Art Dependency Injection (DI):
+	 * Erzeugung und Verwendung sind getrennt, Objekte wie Clock, OutputWriter, etc. werden übergeben. So kann auf verschiedene
+	 * Szenarien eingegangen werden. Die Aufspaltung erleichtert/ermöglicht so z.B. auch ein Testszenario mit JUnit.
+	 * @throws ParseException
+	 */
 	private void runSimulation() throws ParseException {
 		DiaryClock clock = new DiaryClock();
 		ProductBuilderRegistry registry = ProductBuilderRegistry.loadFromService();

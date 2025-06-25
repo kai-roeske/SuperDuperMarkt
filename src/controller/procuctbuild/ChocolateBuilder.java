@@ -2,16 +2,20 @@ package controller.procuctbuild;
 
 import java.util.Date;
 
-import controller.Constants.ChocolateType;
 import products.Chocolate;
 import products.Clock;
 import products.Product;
+import products.ProductType;
+import products.types.ChocolateType;
 
+/**
+ * See {@link ProductBuilder}
+ */
 public class ChocolateBuilder implements ProductBuilder {
 
     @Override
     public String getSupportedType() {
-        return "chocolate";
+        return ProductType.chocolate.name();
     }
 
     @Override

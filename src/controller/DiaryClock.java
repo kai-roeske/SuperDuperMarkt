@@ -4,7 +4,10 @@ import java.util.Date;
 
 import products.Clock;
 
-public class DiaryClock implements Clock{
+/**
+ * Implementierung von Clock für die Anwendung. Adapter (in Anwendungsschicht) für Port im Modell.
+ */
+public class DiaryClock implements Clock {
 
 	@Override
 	public void passDay() {

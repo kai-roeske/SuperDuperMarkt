@@ -48,7 +48,6 @@ public class FakeClock implements Clock {
 	public String toString() {
 		return DateTimeUtils.formatDate(current);
 	}
-    
 }
 
 

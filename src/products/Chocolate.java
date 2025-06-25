@@ -3,8 +3,6 @@ package products;
 import java.math.BigDecimal;
 import java.util.Date;
 
-import controller.Constants.ProductType;
-import controller.Constants.Specification;
 import controller.DateTimeUtils;
 
 /**

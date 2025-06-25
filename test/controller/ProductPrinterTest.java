@@ -11,12 +11,12 @@ import java.util.Date;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import controller.Constants.CheeseType;
-import controller.Constants.WineType;
 import controller.print.OutputWriter;
 import controller.print.ProductPrinter;
 import products.Cheese;
 import products.Wine;
+import products.types.CheeseType;
+import products.types.WineType;
 import testutils.FakeClock;
 
 public class ProductPrinterTest {

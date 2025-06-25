@@ -5,10 +5,15 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Date;
 
-import controller.Constants.CheeseType;
-import controller.Constants.ProductType;
 import controller.DateTimeUtils;
+import products.types.CheeseType;
 
+/**
+ * Käse wird ausgeräumt, wenn die Qualität unter 30 sinkt.
+ * Verliert täglich einen Qualitätspunkt.
+ * Hat ein Verfallsdatum, das zwischen 50 und 100 Tagen liegt.
+ * Hat einen tagesaktuellen Preis.
+ */
 public class Cheese extends Product {
 
 	private Clock clock;
